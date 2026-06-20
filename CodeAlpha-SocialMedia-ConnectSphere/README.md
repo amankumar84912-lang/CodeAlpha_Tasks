@@ -18,25 +18,27 @@ ConnectSphere is a premium, portfolio-grade MERN stack social media platform des
 
 ## 📷 Screenshots
 
-### Desktop & Core Views
+### Core UI Views
 
-| Homepage (Splash / Entry) | Feed / Dashboard Page |
+| Splash Entry Gateway | Feed / Dashboard Page |
 | :---: | :---: |
-| ![Homepage](screenshots/homepage.png) <br> *Clean and beautiful entry gateway showing brand value* | ![Feed Page](screenshots/feed-page.png) <br> *3-column layout displaying user feed, suggestions, and posts* |
+| ![Splash Page](screenshots/splash.png) <br> *Clean entry gateway showing brand logo* | ![Feed Page](screenshots/feed-page.png) <br> *3-column layout displaying feed and suggestions* |
 
 | User Profile View | Search & Discovery |
 | :---: | :---: |
-| ![Profile Page](screenshots/profile-page.png) <br> *User statistics, follow mechanics, and user-centric posts grid* | ![Search Page](screenshots/search-page.png) <br> *Debounced and sanitized search query interface* |
+| ![Profile Page](screenshots/profile-page.png) <br> *User statistics and follower graphs* | ![Search Page](screenshots/search-page.png) <br> *Sanitized username search interface* |
 
-### Account Management & Interactive Flows
+### Onboarding & Authentication
 
 | Login Portal | Registration Gateway |
 | :---: | :---: |
-| ![Login Page](screenshots/login-page.png) <br> *Secure login interface with session persistence* | ![Register Page](screenshots/register-page.png) <br> *New user onboarding with active requirements check* |
+| ![Login Page](screenshots/login-page.png) <br> *Secure login interface with session persistence* | ![Register Page](screenshots/register-page.png) <br> *New user onboarding with active validation* |
 
-| Create Post Dialogue | Mobile Layout (Responsive) |
-| :---: | :---: |
-| ![Create Post](screenshots/create-post.png) <br> *Create posts with text and optimized Cloudinary image uploads* | ![Mobile View](screenshots/mobile-view.png) <br> *Responsive mobile view with bottom navigation bar* |
+### Mobile & Interactive Flows
+
+| Create Post Dialogue | Mobile Bottom Navigation | Mobile Notifications |
+| :---: | :---: | :---: |
+| ![Create Post](screenshots/create-post.png) <br> *Create posts with text and image uploads* | ![Mobile View](screenshots/mobile-view.png) <br> *Responsive mobile layout with bottom tab navigation* | ![Notifications Page](screenshots/notefication.png) <br> *Real-time alert notifications overlay* |
 
 ---
 

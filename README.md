@@ -133,17 +133,21 @@ Client (React UI) ──[Axios Requests]──> Express API Server ──[Mongoo
 ```
 
 ### ConnectSphere Screenshots
-| Login Page | Register Page |
+| Splash Entry Gateway | Feed / Dashboard Page |
+| :---: | :---: |
+| ![Splash Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/splash.png) <br> *Clean entry gateway showing brand logo* | ![Feed Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/feed-page.png) <br> *Chronological post stream showing media content, likes, and comments* |
+
+| User Profile View | Search & Discovery Page |
+| :---: | :---: |
+| ![Profile Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/profile-page.png) <br> *User feed timeline, display configurations, and relation statistics* | ![Search Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/search-page.png) <br> *Debounced username lookup with suggestions* |
+
+| Login Portal | Registration Gateway |
 | :---: | :---: |
 | ![Login Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/login-page.png) <br> *Access control sign-in with active session verification* | ![Register Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/register-page.png) <br> *User signup flow validation check* |
 
-| Feed Page | User Profile View |
-| :---: | :---: |
-| ![Feed Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/feed-page.png) <br> *Chronological post stream showing media content, likes, and comments* | ![Profile Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/profile-page.png) <br> *User feed timeline, display configurations, and relation statistics* |
-
-| Search & Discovery Page | Mobile Bottom-Nav View |
-| :---: | :---: |
-| ![Search Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/search-page.png) <br> *Debounced username lookup with suggestions* | ![Mobile View](CodeAlpha-SocialMedia-ConnectSphere/screenshots/mobile-view.png) <br> *Mobile responsive view showcasing bottom navigation navigation* |
+| Create Post Dialogue | Mobile Bottom Navigation | Mobile Notifications |
+| :---: | :---: | :---: |
+| ![Create Post](CodeAlpha-SocialMedia-ConnectSphere/screenshots/create-post.png) <br> *Create posts with text and image uploads* | ![Mobile View](CodeAlpha-SocialMedia-ConnectSphere/screenshots/mobile-view.png) <br> *Responsive mobile layout with bottom tab navigation* | ![Notifications Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/notefication.png) <br> *Real-time alert notifications overlay* |
 
 ### ConnectSphere Deployment Links
 *   **Live Client Application:** [ConnectSphere Web Portal](https://connectsphere-client.vercel.app)
