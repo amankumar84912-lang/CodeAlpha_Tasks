@@ -31,12 +31,12 @@ This repository showcases the MERN stack web applications designed and developed
 ```text
 CodeAlpha_Tasks/
 │
-├── Task-1_ShopNest/            # E-Commerce Web Application (Client & Server)
+├── CodeAlpha_EcommerceStore/   # E-Commerce Web Application (Client & Server)
 │   ├── client/                 # React frontend client
 │   ├── server/                 # Express REST API server
 │   └── screenshots/            # Product screenshots & mockups
 │
-├── Task-2_ConnectSphere/       # Social Media Platform (Client & Server)
+├── CodeAlpha-SocialMedia-ConnectSphere/ # Social Media Platform (Client & Server)
 │   ├── client/                 # React frontend client
 │   ├── server/                 # Express REST API server
 │   └── screenshots/            # Product screenshots & mockups
@@ -85,19 +85,19 @@ Client (React UI) ──[Axios Requests]──> Express API Server ──[Mongoo
 ### ShopNest Screenshots
 | Homepage | Products Gallery |
 | :---: | :---: |
-| ![Homepage](Task-1_ShopNest/screenshots/homepage.png) <br> *Dynamic landing page displaying featured categories* | ![Products Page](Task-1_ShopNest/screenshots/products-page.png) <br> *Grid view of available products with search filters* |
+| ![Homepage](CodeAlpha_EcommerceStore/screenshots/homepage.png) <br> *Dynamic landing page displaying featured categories* | ![Products Page](CodeAlpha_EcommerceStore/screenshots/products-page.png) <br> *Grid view of available products with search filters* |
 
 | Product Details Page | Shopping Cart Page |
 | :---: | :---: |
-| ![Product Details](Task-1_ShopNest/screenshots/product-details.png) <br> *Detailed product description, inventory, and Add to Cart trigger* | ![Cart Page](Task-1_ShopNest/screenshots/cart-page.png) <br> *Items listing showing quantity updates and pricing totals* |
+| ![Product Details](CodeAlpha_EcommerceStore/screenshots/product-details.png) <br> *Detailed product description, inventory, and Add to Cart trigger* | ![Cart Page](CodeAlpha_EcommerceStore/screenshots/cart-page.png) <br> *Items listing showing quantity updates and pricing totals* |
 
 | Secure Checkout | Admin Dashboard Console |
 | :---: | :---: |
-| ![Checkout Page](Task-1_ShopNest/screenshots/checkout-page.png) <br> *Payment processing form integrated with Razorpay gateway* | ![Admin Dashboard](Task-1_ShopNest/screenshots/admin-dashboard.png) <br> *Product catalog editor, inventory controller, and orders monitor* |
+| ![Checkout Page](CodeAlpha_EcommerceStore/screenshots/checkout-page.png) <br> *Payment processing form integrated with Razorpay gateway* | ![Admin Dashboard](CodeAlpha_EcommerceStore/screenshots/admin-dashboard.png) <br> *Product catalog editor, inventory controller, and orders monitor* |
 
 | User Sign-in Portal | User Signup Page | Mobile Responsive View |
 | :---: | :---: | :---: |
-| ![Login Page](Task-1_ShopNest/screenshots/login-page.png) <br> *Access control login* | ![Register Page](Task-1_ShopNest/screenshots/register-page.png) <br> *Customer onboarding* | ![Mobile Responsive](Task-1_ShopNest/screenshots/mobile-view.png) <br> *Mobile layout view* |
+| ![Login Page](CodeAlpha_EcommerceStore/screenshots/login-page.png) <br> *Access control login* | ![Register Page](CodeAlpha_EcommerceStore/screenshots/register-page.png) <br> *Customer onboarding* | ![Mobile Responsive](CodeAlpha_EcommerceStore/screenshots/mobile-view.png) <br> *Mobile layout view* |
 
 ### ShopNest Deployment Links
 *   **Live Client Application:** [ShopNest Web Portal](https://shopnest-client.vercel.app)
@@ -135,15 +135,15 @@ Client (React UI) ──[Axios Requests]──> Express API Server ──[Mongoo
 ### ConnectSphere Screenshots
 | Login Page | Register Page |
 | :---: | :---: |
-| ![Login Page](Task-2_ConnectSphere/screenshots/login-page.png) <br> *Access control sign-in with active session verification* | ![Register Page](Task-2_ConnectSphere/screenshots/register-page.png) <br> *User signup flow validation check* |
+| ![Login Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/login-page.png) <br> *Access control sign-in with active session verification* | ![Register Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/register-page.png) <br> *User signup flow validation check* |
 
 | Feed Page | User Profile View |
 | :---: | :---: |
-| ![Feed Page](Task-2_ConnectSphere/screenshots/feed-page.png) <br> *Chronological post stream showing media content, likes, and comments* | ![Profile Page](Task-2_ConnectSphere/screenshots/profile-page.png) <br> *User feed timeline, display configurations, and relation statistics* |
+| ![Feed Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/feed-page.png) <br> *Chronological post stream showing media content, likes, and comments* | ![Profile Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/profile-page.png) <br> *User feed timeline, display configurations, and relation statistics* |
 
 | Search & Discovery Page | Mobile Bottom-Nav View |
 | :---: | :---: |
-| ![Search Page](Task-2_ConnectSphere/screenshots/search-page.png) <br> *Debounced username lookup with suggestions* | ![Mobile View](Task-2_ConnectSphere/screenshots/mobile-view.png) <br> *Mobile responsive view showcasing bottom navigation navigation* |
+| ![Search Page](CodeAlpha-SocialMedia-ConnectSphere/screenshots/search-page.png) <br> *Debounced username lookup with suggestions* | ![Mobile View](CodeAlpha-SocialMedia-ConnectSphere/screenshots/mobile-view.png) <br> *Mobile responsive view showcasing bottom navigation navigation* |
 
 ### ConnectSphere Deployment Links
 *   **Live Client Application:** [ConnectSphere Web Portal](https://connectsphere-client.vercel.app)
