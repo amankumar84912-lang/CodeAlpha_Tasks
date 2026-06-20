@@ -190,6 +190,20 @@ export default function FeedPage() {
 
   useEffect(() => { fetchPosts(1); }, [fetchPosts]);
 
+  useEffect(() => {
+    const handleCustomPost = (e) => {
+      if (e.detail) {
+        setPosts(prev => {
+          // Avoid duplicates if already added
+          if (prev.some(p => p._id === e.detail._id)) return prev;
+          return [e.detail, ...prev];
+        });
+      }
+    };
+    window.addEventListener('post-created', handleCustomPost);
+    return () => window.removeEventListener('post-created', handleCustomPost);
+  }, []);
+
   const handlePostCreated = (newPost) => { if (newPost) setPosts(prev => [newPost, ...prev]); };
   const handleDelete      = (postId)  => setPosts(prev => prev.filter(p => p._id !== postId));
   const handleLoadMore    = ()        => { if (!loadingMore && page < totalPages) fetchPosts(page + 1, true); };

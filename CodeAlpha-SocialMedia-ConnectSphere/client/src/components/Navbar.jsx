@@ -2,7 +2,9 @@ import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import UserAvatar from './UserAvatar';
+import CreatePostForm from './CreatePostForm';
 import logoImg from '../assets/logo.png';
+import toast from 'react-hot-toast';
 
 // SVG icons — clean, professional, consistent
 const Icons = {
@@ -14,6 +16,16 @@ const Icons = {
   Search: () => (
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+  ),
+  Plus: () => (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+    </svg>
+  ),
+  Bell: () => (
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
     </svg>
   ),
   User: () => (
@@ -55,6 +67,8 @@ export default function Navbar() {
   const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [drawerOpen,   setDrawerOpen]   = useState(false);
+  const [isCreateOpen, setIsCreateOpen] = useState(false);
+  const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -215,13 +229,23 @@ export default function Navbar() {
                 </button>
               ))}
               {user?._id && (
-                <button
-                  className={`mobile-nav-link${isActive('/profile') ? ' active' : ''}`}
-                  onClick={() => navTo(`/profile/${user._id}`)}
-                >
-                  <div className="mobile-nav-icon"><Icons.User /></div>
-                  <span>Profile</span>
-                </button>
+                <>
+                  <button className="mobile-nav-link" onClick={() => { setDrawerOpen(false); setIsCreateOpen(true); }}>
+                    <div className="mobile-nav-icon"><Icons.Plus /></div>
+                    <span>Create Post</span>
+                  </button>
+                  <button className="mobile-nav-link" onClick={() => { setDrawerOpen(false); setIsNotificationsOpen(true); }}>
+                    <div className="mobile-nav-icon"><Icons.Bell /></div>
+                    <span>Notifications</span>
+                  </button>
+                  <button
+                    className={`mobile-nav-link${isActive('/profile') ? ' active' : ''}`}
+                    onClick={() => navTo(`/profile/${user._id}`)}
+                  >
+                    <div className="mobile-nav-icon"><Icons.User /></div>
+                    <span>Profile</span>
+                  </button>
+                </>
               )}
             </nav>
 
@@ -245,12 +269,70 @@ export default function Navbar() {
           <span>Search</span>
         </button>
         {user?._id && (
-          <button className={`bottom-tab-item${isActive('/profile') ? ' active' : ''}`} onClick={() => navigate(`/profile/${user._id}`)}>
-            <span className="bottom-tab-icon"><Icons.User /></span>
-            <span>Profile</span>
-          </button>
+          <>
+            <button className="bottom-tab-item" onClick={() => setIsCreateOpen(true)}>
+              <span className="bottom-tab-icon"><Icons.Plus /></span>
+              <span>Create</span>
+            </button>
+            <button className="bottom-tab-item" onClick={() => setIsNotificationsOpen(true)}>
+              <span className="bottom-tab-icon"><Icons.Bell /></span>
+              <span>Alerts</span>
+            </button>
+            <button className={`bottom-tab-item${isActive('/profile') ? ' active' : ''}`} onClick={() => navigate(`/profile/${user._id}`)}>
+              <span className="bottom-tab-icon"><Icons.User /></span>
+              <span>Profile</span>
+            </button>
+          </>
         )}
       </div>
+
+      {/* Create Post Modal */}
+      {isCreateOpen && (
+        <div className="modal-overlay" onClick={() => setIsCreateOpen(false)}>
+          <div className="modal-box" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '500px', padding: '20px', borderRadius: 'var(--radius-xl)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+              <h3 className="modal-title" style={{ margin: 0, fontSize: 'var(--text-lg)', textAlign: 'left' }}>Create New Post</h3>
+              <button onClick={() => setIsCreateOpen(false)} style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', fontSize: '18px' }}>✕</button>
+            </div>
+            <CreatePostForm onPostCreated={(newPost) => {
+              setIsCreateOpen(false);
+              const event = new CustomEvent('post-created', { detail: newPost });
+              window.dispatchEvent(event);
+              navigate('/feed');
+            }} />
+          </div>
+        </div>
+      )}
+
+      {/* Notifications Modal */}
+      {isNotificationsOpen && (
+        <div className="modal-overlay" onClick={() => setIsNotificationsOpen(false)}>
+          <div className="modal-box" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '400px', padding: '24px', borderRadius: 'var(--radius-xl)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+              <h3 className="modal-title" style={{ margin: 0, fontSize: 'var(--text-lg)', textAlign: 'left' }}>Notifications</h3>
+              <button onClick={() => setIsNotificationsOpen(false)} style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', fontSize: '18px' }}>✕</button>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxHeight: '350px', overflowY: 'auto' }}>
+              {[
+                { username: 'alex_mercer', action: 'started following you', time: '5m ago', icon: '👤' },
+                { username: 'sarah_designer', action: 'liked your recent post', time: '15m ago', icon: '❤️' },
+                { username: 'david_chen', action: 'commented: "Great project setup! 🚀"', time: '1h ago', icon: '💬' },
+                { username: 'elena_rostova', action: 'liked your comment', time: '3h ago', icon: '👍' },
+                { username: 'alex_mercer', action: 'published a new post', time: '5h ago', icon: '📝' },
+              ].map((notif, idx) => (
+                <div key={idx} style={{ display: 'flex', gap: '12px', alignItems: 'center', padding: '8px 0', borderBottom: '1px solid var(--border)' }}>
+                  <div style={{ fontSize: '20px' }}>{notif.icon}</div>
+                  <div style={{ flex: 1 }}>
+                    <span style={{ fontWeight: 'bold', color: 'var(--text-primary)', fontSize: 'var(--text-sm)' }}>{notif.username}</span>{' '}
+                    <span style={{ color: 'var(--text-muted)', fontSize: 'var(--text-xs)' }}>{notif.action}</span>
+                    <div style={{ fontSize: '10px', color: 'var(--text-disabled)', marginTop: '2px' }}>{notif.time}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

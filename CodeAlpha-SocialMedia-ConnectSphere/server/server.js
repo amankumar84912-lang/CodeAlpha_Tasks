@@ -20,9 +20,19 @@ const app = express();
 
 // ── Middleware ────────────────────────────────────────────────────────────────
 
+const allowedOrigins = process.env.CLIENT_URL
+  ? process.env.CLIENT_URL.split(',').map(o => o.trim())
+  : ['http://localhost:5173', 'http://10.243.7.119:5173'];
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+        return callback(null, true);
+      }
+      return callback(new Error(`Origin ${origin} not allowed by CORS`));
+    },
     credentials: true,
   })
 );
@@ -59,11 +69,11 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 ConnectSphere v2 running on port ${PORT}`);
   console.log(`   Environment : ${process.env.NODE_ENV}`);
   console.log(`   CORS origin  : ${process.env.CLIENT_URL}`);
-  console.log(`   Health       : http://localhost:${PORT}/api/health`);
+  console.log(`   Health       : http://10.243.7.119:${PORT}/api/health`);
 });
 
 export default app;
